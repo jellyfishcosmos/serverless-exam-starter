@@ -1,6 +1,11 @@
 Issue in exam where could only be fixed by full new redeploy, saying missing packages. will fix and deploy if time at end 
 ![Alt text](image.png)
 ![Alt text](image-1.png)
+attempted:
+delete package-lock.json
+npm install/run schema
+did not have time to restart folder and download repo again 
+
 ## Instructions to student.
 
 This repository contains the starting code for a lab-based exam on the Distributed Systems module concerning IaC on the AWS platform. 
