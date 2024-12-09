@@ -1,5 +1,6 @@
 Issue in exam where could only be fixed by full new redeploy, saying missing packages. will fix and deploy if time at end 
-
+![Alt text](image.png)
+![Alt text](image-1.png)
 ## Instructions to student.
 
 This repository contains the starting code for a lab-based exam on the Distributed Systems module concerning IaC on the AWS platform. 
