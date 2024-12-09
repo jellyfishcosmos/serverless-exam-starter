@@ -66,6 +66,22 @@ export class RestAPIStack extends cdk.Stack {
         },
       }
     );
+    //new function
+    const getAwardsByMovieFn = new lambdanode.NodejsFunction(
+      this,
+      "GetAwardsByMovieFn",
+      {
+        architecture: lambda.Architecture.ARM_64,
+        runtime: lambda.Runtime.NODEJS_18_X,
+        entry: `${__dirname}/../lambdas/getAwardsByMovie.ts`, // Lambda function file location
+        timeout: cdk.Duration.seconds(10),
+        memorySize: 128,
+        environment: {
+          MOVIE_AWARDS_TABLE_NAME: movieAwardsTable.tableName, // New table for MovieAwards
+          REGION: "eu-west-1", // Region for AWS resources
+        },
+      }
+    );
 
     const getMovieCastMembersFn = new lambdanode.NodejsFunction(
       this,
@@ -163,5 +179,6 @@ export class RestAPIStack extends cdk.Stack {
     moviesTable.grantReadWriteData(deleteMovieByIdFn);
     movieCastsTable.grantReadData(getMovieCastMembersFn);
     movieCastsTable.grantReadData(getMovieByIdFn);
+    movieAwardsTable.grantReadData(getAwardsByMovieFn);
   }
 }
